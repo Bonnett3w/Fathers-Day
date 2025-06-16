@@ -1,0 +1,37 @@
+body {
+    margin: 0; height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#startConfetti{
+    width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: aquamarine;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 8px 32px;
+      margin: 25%;
+}
+
+#message {
+    font-size: 30px;
+    text-align: center;
+    font-size: bold;
+    color: #33e817;
+    display: none;
+    position: absolute;
+    margin-top: 200px;
+}
+
+#peter {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    display: none;
+}
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Fathers Day</title>
+  <link rel="stylesheet" href="fathersdaystyle.css">
+
+</head>
+
+<body>
+    <button id="startConfetti"> Click Me! </button>
+
+    <img id="peter" src="C:\Users\bonne\Downloads\PETER-FACE.png">
+
+    <p id="message">Happy Father's Day Dad!!!</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+    <script>
+      const startConfettiButton = document.getElementById("startConfetti");
+      startConfettiButton.addEventListener("click", () => {
+        // Hide the button
+        startConfettiButton.style.display = "none";
+
+        // Show the image
+        const image = document.getElementById("peter");
+        image.style.display = "block";
+        let rotationAngle = 0;
+
+        // Display the message
+        const message = document.getElementById("message");
+        message.style.display = "block";
+
+        let t = 0;
+        setInterval(() => {
+        // Fluctuate between 2em and 3em
+        const size = 2 + Math.abs(Math.sin(t)) * 1; // 2em to 3em
+        message.style.fontSize = size + "em";
+        t += 0.05;
+        }, 30);
+
+        // Spin the image
+        function rotateObject() {
+          rotationAngle += 5; // Adjust the rotation speed (e.g., 1 degree per frame)
+          image.style.transform = `rotate(${rotationAngle}deg)`;
+          requestAnimationFrame(rotateObject); // Use requestAnimationFrame for smooth animation
+        }
+
+        rotateObject(); // Start the rotation
+
+
+        // Start confetti
+        function sprayConfetti() {
+          confetti({
+          particleCount: 300,
+          spread: 100,
+          origin: { y: 1 },
+        });
+
+        confetti({
+          particleCount: 200,
+          spread: 150,
+          origin: { x: 1, y: 1 },
+        });
+
+        confetti({
+          particleCount: 200,
+          spread: 150,
+          origin: { x: 0, y: 1 },
+        });
+        }
+        setInterval(sprayConfetti, 1000); 
+      });
+    </script>
+
+</body>
+</html>
